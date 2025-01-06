@@ -1,0 +1,25 @@
+shell:~$ nmap -sn 10.128.26.0/24
+Starting Nmap 7.95 ( https://nmap.org ) at 2025-01-06 15:22 UTC
+Nmap scan report for isc-server (10.128.26.1)
+Host is up (0.000054s latency).
+MAC Address: 02:42:6A:36:C3:4C (Unknown)
+Nmap scan report for 10.128.26.23
+Host is up (0.000037s latency).
+MAC Address: 02:42:0A:80:1A:02 (Unknown)
+Nmap scan report for 10.128.26.37
+Host is up (0.000027s latency).
+MAC Address: 02:42:0A:80:1A:04 (Unknown)
+Nmap scan report for 10.128.26.69
+Host is up (0.000015s latency).
+MAC Address: 02:42:0A:80:1A:05 (Unknown)
+Nmap scan report for 10.128.26.163
+Host is up (0.000040s latency).
+MAC Address: 02:42:0A:80:1A:03 (Unknown)
+Nmap scan report for shell (10.128.26.6)
+Host is up.
+Nmap done: 256 IP addresses (6 hosts up) scanned in 1.93 seconds
+
+shell:~$ echo "HELLO" | nc -u -w 1 10.128.26.37 18
+Oh, hi there! I was told to give you this:
+SpeishFlag{nY2w6g4yuUErewRnO78lSwtnVReBGl9E}
+

